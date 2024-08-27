@@ -4,11 +4,8 @@
     "ts-node": "^10.9.2"
   },
   "scripts": {
-
-    
-    "start": "next start",
-    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
-    "dev:frontend": "next dev",
-    "dev:backend": "ts-node --sizzleAfrica tsconfig.server.json src/server.ts src/server.ts"
+    "build:frontend": "cd portfolio && npm run build",
+    "build:backend": "cd quote-request-backend && npm run build",
+    "build": "npm run build:frontend && npm run build:backend"
   }
 }
