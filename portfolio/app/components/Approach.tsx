@@ -1,10 +1,10 @@
 "use client";
-import React from "react";
+import React from "react"; 
 
 import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "@/app/components/ui/CanvasRevealEffect";
 
-const Approach= ()=> {
+const Approach= ()=> { 
   return (
     <section className="w-full py-20">
         <h1 className="heading text-black">
