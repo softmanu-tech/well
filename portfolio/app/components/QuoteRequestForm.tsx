@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useTransition } from 'react';
 import StatusMessage from './StatusMessage';
+import { sendMailAction } from '@/actions/ats.sendmail';
 
-interface QuoteFormData {
+export interface QuoteFormData {
   name: string;
   email: string;
   service: string;
@@ -28,41 +29,31 @@ const QuoteRequestForm: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
-  const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
+  
+  const [isPending, startTransition] = useTransition();
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(true);
-    setError(null);
-    setSuccess(false);
-    try{
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/quotes`,{
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      if(response.ok){
-        setSuccess(true);
-        console.log('Quote request submitted successfully');
-        setFormData({name: '', email: '', service: '', message:''})
+    startTransition(() => {
+      sendMailAction (formData)
+        .then((res) => {
+          console.log(res);
+          if (res?.error) {
+            setError(res.error)
+          
+          } else if (res?.success) {
+          setSuccess(true)
+          }
+        })
+        .catch((error) => {
         
-      } else {
-        const errorData = await response.json();
-        setError(errorData.message || 'Failed to submit quote request');
-        
-      }
-    } catch(error){
-      setError('An error occurred while submitting the quote request');
-      console.error('Error:',error);
-    } finally {
-      setIsLoading(false);
-    }
-
+          console.error(error);
+        });
+    });
   };
 
   return (
     <div className="max-w-md mx-auto mt-8">
-      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form onSubmit= {onSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h2 className="text-2xl font-bold mb-6 text-center">Request a Quote</h2>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
@@ -128,7 +119,7 @@ const QuoteRequestForm: React.FC = () => {
           ></textarea>
         </div>
         <div className="flex items-center justify-center">
-          <StatusMessage isLoading={isLoading} error={error} success={success} />
+          <StatusMessage isLoading={isPending} error={error} success={success} />
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
