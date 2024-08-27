@@ -1,0 +1,95 @@
+/* DotBackgroundDemo.css */
+
+.background-container {
+    position: relative;
+    height: 50rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .dot-background {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    background-image: radial-gradient(#000 1px, transparent 1px);
+    background-size: 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .radial-gradient {
+    position: absolute;
+    pointer-events: none;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    mask-image: radial-gradient(ellipse at center, transparent 20%, black);
+  }
+  
+  .title-text {
+    font-size: 4rem;
+    font-weight: bold;
+    position: relative;
+    z-index: 20;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to bottom, #e5e5e5, #808080);
+    padding: 2rem 0;
+  }
+  
+  /* Flower styles */
+  .flower {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23FFB6C1" d="M50 0 L60 35 L95 35 L65 55 L75 90 L50 70 L25 90 L35 55 L5 35 L40 35 Z"/></svg>') no-repeat center center / contain;
+    animation: float 20s infinite linear;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translate(-100%, -100%) rotate(0deg);
+    }
+    100% {
+      transform: translate(100vw, 100vh) rotate(720deg);
+    }
+  }
+  
+  /* Position and animate each flower differently */
+  .flower-1 { animation-duration: 30s; animation-delay: -2s; }
+  .flower-2 { animation-duration: 34s; animation-delay: -5s; }
+  .flower-3 { animation-duration: 28s; animation-delay: -8s; }
+  .flower-4 { animation-duration: 32s; animation-delay: -11s; }
+  .flower-5 { animation-duration: 36s; animation-delay: -14s; }
+  .flower-6 { animation-duration: 38s; animation-delay: -17s; }
+  .flower-7 { animation-duration: 26s; animation-delay: -20s; }
+  .flower-8 { animation-duration: 40s; animation-delay: -23s; }
+  .flower-9 { animation-duration: 42s; animation-delay: -26s; }
+  .flower-10 { animation-duration: 44s; animation-delay: -29s; }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 640px) {
+    .title-text {
+      font-size: 2rem;
+    }
+  }
+  
+  /* Dark mode styles */
+  @media (prefers-color-scheme: dark) {
+    .dot-background {
+      background-color: black;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    }
+  
+    .radial-gradient {
+      background-color: black;
+    }
+  
+    .title-text {
+      background-image: linear-gradient(to bottom, #f5f5f5, #a0a0a0);
+    }
+  }

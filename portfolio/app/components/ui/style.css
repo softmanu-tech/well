@@ -1,0 +1,12 @@
+@media (max-width: 768px) {
+    .Spotlight svg {
+      fill: red
+      cx="1924.71"
+          cy="273.501"
+          rx="1924.71"
+          ry="273.501"
+          transform="matrix(-0.822377 -0.568943 -0.568943 0.822377 3631.88 2291.09)"
+          
+          fillOpacity="1"
+    }
+  }
