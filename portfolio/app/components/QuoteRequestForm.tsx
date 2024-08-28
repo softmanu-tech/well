@@ -1,8 +1,11 @@
 import React, { useState, useTransition } from 'react';
 import StatusMessage from './StatusMessage';
 import { sendMailAction } from '@/actions/ats.sendmail';
-import { Label } from '@radix-ui/react-label';
+
+
 import { Input } from './ui/Input';
+
+
 
 export interface QuoteFormData {
   name: string;
@@ -60,9 +63,9 @@ const QuoteRequestForm: React.FC = () => {
       <form onSubmit= {onSubmit} className="bg-purple shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h2 className="text-2xl font-bold mb-6 text-center">Request a Quote</h2>
         <div className="mb-4">
-          <Label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
             Name
-          </Label>
+          </label>
           <Input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="name"
@@ -75,9 +78,9 @@ const QuoteRequestForm: React.FC = () => {
           />
         </div>
         <div className="mb-4">
-          <Label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
             Email
-          </Label>
+          </label>
           <Input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="email"
@@ -90,9 +93,9 @@ const QuoteRequestForm: React.FC = () => {
           />
         </div>
         <div className="mb-4">
-          <Label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phone">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phone">
             Contact
-          </Label>
+          </label>
           <Input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="phone"
@@ -105,9 +108,9 @@ const QuoteRequestForm: React.FC = () => {
           />
         </div>
         <div className="mb-4">
-          <Label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="service">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="service">
             Service
-          </Label>
+          </label>
           <select
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="service"
@@ -123,9 +126,9 @@ const QuoteRequestForm: React.FC = () => {
           </select>
         </div>
         <div className="mb-6">
-          <Label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
             Message
-          </Label>
+          </label>
           <textarea
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="message"

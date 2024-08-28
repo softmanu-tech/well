@@ -9,6 +9,7 @@
     "dev": "next dev"
   },
   "dependencies": {
+    "@radix-ui/react-label": "^2.1.0",
     "@react-three/drei": "^9.111.1",
     "@react-three/fiber": "^8.17.5",
     "@sentry/browser": "^8.26.0",
