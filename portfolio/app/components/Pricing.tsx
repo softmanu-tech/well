@@ -1,121 +1,179 @@
-"use client";
-import React from 'react';
-import { motion } from 'framer-motion';
+"use client"
+import React, { useState, useEffect, useRef } from 'react';
+import { BsCheckCircleFill } from 'react-icons/bs'; 
+import MagicButton from './ui/MagicButton';
+import { FaLocationArrow } from 'react-icons/fa';
+import QuoteRequestForm from './QuoteRequestForm';
 
-// Define types for the pricing plans
-interface PricingPlan {
-  title: string;
-  price: string;
-  description: string;
-  features: string[];
-  buttonText: string;
-  buttonAction: () => void;
-}
+// Custom hook for animating the price
+const useCountAnimation = (endPrice: number, duration: number = 2000) => {
+  const [count, setCount] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const animationRef = useRef<number>();
 
-// Define the props for the PricingCard component
-interface PricingCardProps {
-  plan: PricingPlan;
-}
+  useEffect(() => {
+    const startTime = Date.now();
+    
+    const animateCount = () => {
+      const now = Date.now();
+      const elapsed = now - startTime;
+      const progress = (elapsed % duration) / duration;
+      const nextCount = Math.floor(progress * endPrice);
 
-// PricingCard component
-const PricingCard: React.FC<PricingCardProps> = ({ plan }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="bg-purple rounded-lg shadow-lg p-6 flex flex-col h-full"
-    >
-      <h2 className="text-xl font-semibold text-white mb-2">{plan.title}</h2>
-      <h3 className="text-3xl font-bold text-white mb-4">{plan.price}</h3>
-      <p className="text-black mb-6">{plan.description}</p>
-      <ul className="space-y-2 mb-6 flex-grow">
-        {plan.features.map((feature, index) => (
-          <li className="flex items-center"  key={index}>{feature}</li>
-        ))}
-      </ul>
-      <button onClick={plan.buttonAction}
-      className="w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-300"
-      >
-        {plan.buttonText}</button>
-    </motion.div>
-  );
+      setCount(nextCount);
+
+      if (!isHovered) {
+        animationRef.current = requestAnimationFrame(animateCount);
+      }
+    };
+
+    animationRef.current = requestAnimationFrame(animateCount);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [endPrice, duration, isHovered]);
+
+  useEffect(() => {
+    if (isHovered) {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+      setCount(endPrice);
+    }
+  }, [isHovered, endPrice]);
+
+  return { count, setIsHovered };
 };
 
-// Main Pricing component
-const Pricing: React.FC = () => {
-  const pricingPlans: PricingPlan[] = [
-    {
-      title: "This is PRICING SECTION",
-      price: "Still on construction",
-      description: "All the components that are freely available on the website are free to use.",
-      features: [
-        "A growing library of awesome components",
-        "React / Next.js / Tailwind CSS code",
-        "Serves a wide variety of audience.",
-        "MIT Licence. Personal or commercial projects.",
-        "Contact over chat for support"
-      ],
-      buttonText: "Campaing",
-      buttonAction: () => console.log("Browse Components clicked")
-    },
-    {
-      title: "This is PRICING SECTION",
-      price: "Still on construction",
-      description: "All the components that are freely available on the website are free to use.",
-      features: [
-        "A growing library of awesome components",
-        "React / Next.js / Tailwind CSS code",
-        "Serves a wide variety of audience.",
-        "MIT Licence. Personal or commercial projects.",
-        "Contact over chat for support"
-      ],
-      buttonText: "Campaing",
-      buttonAction: () => console.log("Browse Components clicked")
-    },
-    {
-      title: "This is PRICING SECTION",
-      price: "Still on construction",
-      description: "All the components that are freely available on the website are free to use.",
-      features: [
-        "A growing library of awesome components",
-        "React / Next.js / Tailwind CSS code",
-        "Serves a wide variety of audience.",
-        "MIT Licence. Personal or commercial projects.",
-        "Contact over chat for support"
-      ],
-      buttonText: "Campaing",
-      buttonAction: () => console.log("Browse Components clicked")
-    },
-    {
-      title: "This is PRICING SECTION",
-      price: "Still on construction",
-      description: "All the components that are freely available on the website are free to use.",
-      features: [
-        "A growing library of awesome components",
-        "React / Next.js / Tailwind CSS code",
-        "Serves a wide variety of audience.",
-        "MIT Licence. Personal or commercial projects.",
-        "Contact over chat for support"
-      ],
-      buttonText: "Campaing",
-      buttonAction: () => console.log("Browse Components clicked")
-    },
-    // Add other pricing plans here...
-  ];
+interface PricingCardProps {
+  price: number;
+  period: string;
+  features: string[];
+  color: string;
+}
+
+const PricingCard: React.FC<PricingCardProps> = ({ price, period, features, color }) => {
+  const { count, setIsHovered } = useCountAnimation(price);
+  const [isFormVisible, setIsFormVisible] = useState(false);
+
+  const toggleFormVisibility = () => {
+    setIsFormVisible(!isFormVisible);
+  };
 
   return (
-    <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-12">Pricing Plans</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {pricingPlans.map((plan, index) => (
-            <PricingCard key={index} plan={plan} />
+    
+    <div className="max-w-sm w-full bg-white rounded-lg overflow-hidden shadow-lg">
+       
+      <div className={`${color} p-6 text-white`}
+           onMouseEnter={() => setIsHovered(true)}
+           onMouseLeave={() => setIsHovered(false)}>
+        <h2 className="text-3xl font-bold">Ksh. {count.toLocaleString()}</h2>
+        <p className="text-sm">/{period}</p>
+      </div>
+      <div className="p-6">
+        <ul className="space-y-3">
+          {features.map((feature, index) => (
+            <li key={index} className="flex items-start">
+              <BsCheckCircleFill className="flex-shrink-0 w-5 h-5 text-black mr-2 mt-1" />
+              <span className="text-sm text-gray-600">{feature}</span>
+            </li>
           ))}
-        </div>
+        </ul>
+        
+        <div className='flex items-center h-12'>
+                <a onClick={toggleFormVisibility} className="inline-block cursor-pointer">
+                  <MagicButton 
+                    title="Request Quotation"
+                    icon={<FaLocationArrow />}
+                    position="right"
+                  />
+                </a>
+                {isFormVisible && (
+                  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                    <div className="bg-white p-6 rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
+                      <button 
+                        onClick={toggleFormVisibility}
+                        className="float-right text-gray-700 hover:text-gray-900"
+                      >
+                        ✕
+                      </button>
+                      <QuoteRequestForm />
+                    </div>
+                  </div>
+                )}
+              </div>
       </div>
     </div>
   );
 };
 
-export default Pricing;
+const PricingCards: React.FC = () => {
+  const cards = [
+    {
+      price: 48000,
+      period: 'Website',
+      features: [
+        'No. of Website Pages (18 Max)',
+        'Premium Theme Samples (1)',
+        'Responsive On All Devices',
+        'Custom Headers, Footers & Widgets',
+        'Picture & Image Gallery (1)',
+        'Campaign Landing Pages (1)',
+        'Lead Capture Website Forms (2)',
+        'Social Media & Blog Integrated',
+        'Website Analytics Integrated',
+        'Premium Website Security Firewall',
+        'WhatsApp Chat Functionality',
+        'Basic Optimization (On-page SEO)',
+        'Delivery Time (14 Working Days)'
+      ],
+      color: 'bg-purple'
+    },
+    {
+      price: 41750,
+      period: 'campaign',
+      features: [
+        'Facebook + Instagram + X (formerly Twitter)',
+        'Custom Digital Strategy',
+        'Profile Optimization',
+        '12 Campaign Posts',
+        '8 Themed Graphic Designs: Including posters and cover photos to maintain a cohesive visual identity.',
+        'Targeted Advertising',
+        'Community Management: Actively engaging with your audience through comments, messages, and discussions.',
+        'Weekly Updates & Monthly Report: Detailed monthly report summarizing campaign performance and key insights.'
+      ],
+      color: 'bg-purple'
+    },
+    {
+      price: 55210,
+      period: 'Campaign',
+      features: [
+        '(1) Search or Performance Max Ad Format',
+        'Keywords Research, Sorting & Sifting',
+        'Goal-Based Campaigns',
+        'Quality Score Optimization',
+        'Audience Targeting',
+        'Ad Extensions',
+        'Automatic or Manual Ad Bidding & Placements',
+        'Geotargeting',
+        'Certified Google Ads Specialist',
+        'Keyword-rich Headings & Descriptions',
+        'Weekly Updates & Performance Reports'
+      ],
+      color: 'bg-purple'
+    }
+  ];
+
+  return (
+    <div className="flex flex-col md:flex-row justify-center items-start gap-6 p-6 bg-gray-100">
+      {cards.map((card, index) => (
+        <PricingCard key={index} {...card} />
+      ))}
+    </div>
+  );
+};
+
+export default PricingCards;

@@ -22,7 +22,7 @@ const Footer = () => {
             </h1>
             <p className='text-black md:mt-10 my-5 text-bold italic'>Reach out today and let&apos;s discuss how we can help you achieve your goals.</p>
             <div className="flex flex-row justify-center items-center space-x-4 w-full">
-              <div className='flex items-center h-12'>
+            <div className='flex items-center h-12'>
                 <a onClick={toggleFormVisibility} className="inline-block cursor-pointer">
                   <MagicButton 
                     title="Request Quotation"

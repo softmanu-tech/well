@@ -13,7 +13,7 @@ export const navItems = [
       id: 1,
       title: "We prioritize client satsfaction ",
       description: "",
-      className: "col-span-1 row-span-1 sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2",
+      className: "col-span-1 row-span-1 sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2 text-purple",
       imgClassName: "w-full h-full",
       titleClassName: "justify-start",
       videoSrc: "/corp.mp4",
@@ -22,7 +22,7 @@ export const navItems = [
     },
     {
       id: 2,
-      title: "",
+      title: "Sizzle Africa Marketing Limited is a leading provider of innovative marketing solutions and corporate branding. Our integrated, cutting-edge strategies are designed to help clients achieve their goals and maximize efficiency, boost ROI, and enhance brand competence. ",
       description: "",
       className: "col-span-1 row-span-1 sm:col-span-1 sm:row-span-2",
       imgClassName: "",
@@ -42,9 +42,9 @@ export const navItems = [
     },
     {
       id: 4,
-      title: "",
+      title: "Let us re- DEFINE EXCELLENCE FOR YOU and take your brand to the next level.",
       description: "",
-      className: "col-span-1 row-span-1",
+      className: "col-span-1 row-span-1 text-purple",
       imgClassName: "",
       titleClassName: "",
       img: "",
@@ -53,8 +53,8 @@ export const navItems = [
     },
     {
       id: 5,
-      title: "",
-      description: "The Inside Scoop",
+      title: " Personalized Interactive Screens",
+      description: "",
       className: "col-span-1 row-span-1 sm:col-span-4 sm:row-span-1 lg:col-span-1 lg:row-span-1",
       imgClassName: "w-full h-full object-contain",
       titleClassName: "",
@@ -62,16 +62,7 @@ export const navItems = [
       spareImg: "",
       videoSrc: "/video.mp4",
     },
-    {
-      id: 6,
-      title: "Copy Email",
-      description: "",
-      className: "col-span-1 row-span-1 sm:col-span-3 sm:row-span-1",
-      imgClassName: "",
-      titleClassName: "",
-      img: "",
-      spareImg: "",
-    },
+   
   ];
   
   export const projects = [
@@ -87,7 +78,7 @@ export const navItems = [
       id: 2,
       title: "I need a heading here from MJ and the particular link to the post",
       des: "AND A DESCRIPTION OF THE IMAGE",
-      img: "/p2.svg",
+      img: "/",
       iconLists: ["/insta.svg", "/link.svg", "/ts.svg", "/stream.svg", "/c.svg"],
       link: "",
     },
@@ -103,7 +94,7 @@ export const navItems = [
       id: 4,
       title: "I need a heading here from MJ  and the particular link to the post",
       des: "AND A DESCRIPTION OF THE IMAGE",
-      img: "/p4.svg",
+      img: "/",
       iconLists: ["/insta.svg", "/link.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
       link: "",
     },
