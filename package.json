@@ -13,6 +13,11 @@
     "build:backend": "cd quote-request-backend && npm run build"
   },
   "dependencies": {
-    "cors": "^2.8.5"
+    "@radix-ui/react-label": "^2.1.0",
+    "@tabler/icons-react": "^3.14.0",
+    "clsx": "^2.1.1",
+    "cors": "^2.8.5",
+    "framer-motion": "^11.3.30",
+    "tailwind-merge": "^2.5.2"
   }
 }

@@ -21,7 +21,7 @@ const StatusMessage: React.FC<StatusMessageProps> = ({
   }
 
   if (success) {
-    return <p className="text-green-500">Quote request submitted successfully!</p>;
+    return <p className="text-green-500">Submitted successfully!</p>;
   }
 
   return null;

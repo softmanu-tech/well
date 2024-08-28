@@ -1,12 +1,15 @@
 import React, { useState, useTransition } from 'react';
 import StatusMessage from './StatusMessage';
 import { sendMailAction } from '@/actions/ats.sendmail';
+import { Label } from '@radix-ui/react-label';
+import { Input } from './ui/Input';
 
 export interface QuoteFormData {
   name: string;
   email: string;
   service: string;
   message: string;
+  phone: string;
 }
 
 const QuoteRequestForm: React.FC = () => {
@@ -15,6 +18,7 @@ const QuoteRequestForm: React.FC = () => {
     email: '',
     service: '',
     message: '',
+    phone: '',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -53,13 +57,13 @@ const QuoteRequestForm: React.FC = () => {
 
   return (
     <div className="max-w-md mx-auto mt-8">
-      <form onSubmit= {onSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form onSubmit= {onSubmit} className="bg-purple shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h2 className="text-2xl font-bold mb-6 text-center">Request a Quote</h2>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+          <Label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
             Name
-          </label>
-          <input
+          </Label>
+          <Input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="name"
             type="text"
@@ -71,10 +75,10 @@ const QuoteRequestForm: React.FC = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+          <Label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
             Email
-          </label>
-          <input
+          </Label>
+          <Input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="email"
             type="email"
@@ -86,9 +90,24 @@ const QuoteRequestForm: React.FC = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="service">
+          <Label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phone">
+            Contact
+          </Label>
+          <Input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="phone"
+            type="text"
+            placeholder="Your Contact"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <Label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="service">
             Service
-          </label>
+          </Label>
           <select
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="service"
@@ -97,16 +116,16 @@ const QuoteRequestForm: React.FC = () => {
             onChange={handleChange}
             required
           >
-            <option value="">Select a service</option>
+            
             <option value="service1"> Website services </option>
             <option value="service2"> Basic Marketing Campaing </option>
             <option value="service3"> Premium Marketing Campaing </option>
           </select>
         </div>
         <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
+          <Label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
             Message
-          </label>
+          </Label>
           <textarea
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="message"

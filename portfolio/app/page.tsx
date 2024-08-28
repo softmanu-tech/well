@@ -20,6 +20,7 @@ export default function Home() {
       <div className="max-w-7xl w-full mx-auto px-5 sm:px-10 flex-col grid-flow-col justify-center items-center overflow-clip">
         <FloatingNav  navItems={navItems}/>
         <Hero/>
+        <Grid />
         <Experience />
         <Grid />
         <RecentProjects/>
