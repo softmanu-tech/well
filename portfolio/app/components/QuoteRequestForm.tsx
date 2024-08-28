@@ -98,9 +98,9 @@ const QuoteRequestForm: React.FC = () => {
             required
           >
             <option value="">Select a service</option>
-            <option value="service1">Service 1</option>
-            <option value="service2">Service 2</option>
-            <option value="service3">Service 3</option>
+            <option value="service1"> Website services </option>
+            <option value="service2"> Basic Marketing Campaing </option>
+            <option value="service3"> Premium Marketing Campaing </option>
           </select>
         </div>
         <div className="mb-6">

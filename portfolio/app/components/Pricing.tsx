@@ -113,8 +113,8 @@ const PricingCard: React.FC<PricingCardProps> = ({ price, period, features, colo
 const PricingCards: React.FC = () => {
   const cards = [
     {
-      price: 48000,
-      period: 'Website',
+      price: 48000, period: 'Website Services',
+      
       features: [
         'No. of Website Pages (18 Max)',
         'Premium Theme Samples (1)',
@@ -133,8 +133,8 @@ const PricingCards: React.FC = () => {
       color: 'bg-purple'
     },
     {
-      price: 41750,
-      period: 'campaign',
+      price: 41750,period: 'Basic Marketing Campaign ',
+      
       features: [
         'Facebook + Instagram + X (formerly Twitter)',
         'Custom Digital Strategy',
@@ -148,8 +148,8 @@ const PricingCards: React.FC = () => {
       color: 'bg-purple'
     },
     {
-      price: 55210,
-      period: 'Campaign',
+      price: 55210,period: 'Premium Marketing Campaign',
+      
       features: [
         '(1) Search or Performance Max Ad Format',
         'Keywords Research, Sorting & Sifting',
