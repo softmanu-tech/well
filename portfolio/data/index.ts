@@ -226,7 +226,7 @@ export const navItems = [
     {
       id: 4,
       title: "Web Design and Development Services",
-      desc: "Whether you're launching a new site or revamping an existing one, our team of expert designers and developers is ready to bring your digital vision to life. Let's create a website that not only looks great but also drives results for your business.",
+      desc: "Whether you're launching a new site or revamping an existing one, our team of expert designers and developers is ready to bring your digital vision to life. Let us create a website that not only looks great but also drives results for your business.",
       className: "md:col-span-2",
       thumbnails: ["/exp4.svg"]
     },
