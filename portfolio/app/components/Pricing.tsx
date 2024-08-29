@@ -65,7 +65,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ price, period, features, colo
 
   return (
     
-    <div className="max-w-sm w-full bg-white rounded-lg overflow-hidden shadow-lg">
+    <div className="max-w-sm w-full bg-white rounded-lg overflow-hidden shadow-lg" id=''>
        
       <div className={`${color} p-6 text-white`}
            onMouseEnter={() => setIsHovered(true)}
