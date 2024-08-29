@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
-import { Home, ShoppingBag, Briefcase, MessageCircle, DollarSign, Menu, X, Users } from 'lucide-react';
+import { FaHome, FaShoppingBag, FaBriefcase, FaCommentAlt, FaDollarSign, FaBars, FaTimes, FaUsers } from 'react-icons/fa';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,26 +18,24 @@ const Navbar: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Add or remove the 'overflow-hidden' class to the body when the menu is opened or closed
     if (isOpen) {
       document.body.classList.add('overflow-hidden');
     } else {
       document.body.classList.remove('overflow-hidden');
     }
 
-    // Cleanup function to remove the class when the component unmounts
     return () => {
       document.body.classList.remove('overflow-hidden');
     };
   }, [isOpen]);
 
   const menuItems = [
-    { name: 'Home', icon: <Home size={20} /> },
-    { name: 'Shop', icon: <ShoppingBag size={20} /> },
-    { name: 'Services', icon: <Briefcase size={20} /> },
-    { name: 'Career', icon: <Users size={20} /> },
-    { name: 'Testimonials', icon: <MessageCircle size={20} /> },
-    { name: 'Pricing', icon: <DollarSign size={20} /> },
+    { name: 'Home', icon: <FaHome size={20} /> },
+    { name: 'Shop', icon: <FaShoppingBag size={20} /> },
+    { name: 'Services', icon: <FaBriefcase size={20} /> },
+    { name: 'Career', icon: <FaUsers size={20} /> },
+    { name: 'Testimonials', icon: <FaCommentAlt size={20} /> },
+    { name: 'Pricing', icon: <FaDollarSign size={20} /> },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -80,7 +77,7 @@ const Navbar: React.FC = () => {
                     boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
                   }}
                 >
-                  <span className="text-black">{React.cloneElement(item.icon, { color: 'currentColor' })}</span>
+                  <span className="text-black">{item.icon}</span>
                   <span className="ml-2 text-purple">{item.name}</span>
                 </a>
               ))}
@@ -94,7 +91,7 @@ const Navbar: React.FC = () => {
               }`}
             >
               <span className="sr-only">Open main menu</span>
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
           </div>
         </div>
@@ -115,7 +112,7 @@ const Navbar: React.FC = () => {
                   boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
                 }}
               >
-                <span className="text-black">{React.cloneElement(item.icon, { color: 'currentColor' })}</span>
+                <span className="text-black">{item.icon}</span>
                 <span className="ml-2 text-purple">{item.name}</span>
               </a>
             ))}
