@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import { Home, ShoppingBag, Briefcase, MessageCircle, DollarSign, Menu, X, Users } from 'lucide-react';
 
 const Navbar: React.FC = () => {
