@@ -40,7 +40,7 @@ const ScrollingPortfolio: React.FC = () => {
           </div>
           <div className="w-full md:w-1/3 md:pl-8 sm:w-full">
             <p className="text-purple text-sm md:text-base">
-              We've had the privilege of collaborating with a wide range of clients, both big and
+              We&apos;ve had the privilege of collaborating with a wide range of clients, both big and
               small, and have consistently exceeded their expectations. We take immense pride
               in <span className="text-brown-300 font-semibold">showcasing an array of diverse projects</span> that span various industries and
               markets.
