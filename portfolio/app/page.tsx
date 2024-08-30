@@ -16,7 +16,9 @@ import Navbar from "./components/Navbar";
 import Services from "./components/services";
 import PricingTables from "./components/PricingPlans";
 import PricingPlans from "./components/PricingPlans";
-
+import AboutUs from "./components/AboutUs";
+import Card3D from "./components/3D";
+import ScrollingCards from "./components/ScrollingCards";
 
 
 
@@ -27,15 +29,14 @@ export default function Home() {
       <main className=" bg-slate-100 justify-center items-center overflow-hidden px-5 mx-auto sm:px-10">
         <div className="max-w-7xl w-full mx-auto px-5 sm:px-10 flex-col grid-flow-col justify-center items-center overflow-clip">
           <Hero/>
+          <AboutUs/>
           <Experience />
-          
-          
-
+          <ScrollingCards/>
           <RecentProjects/>
           <Clients />
+          
           <ScrollingPortfolio/>
           <PricingPlans/>
-          
           <Approach/>
           <Footer/>
         </div>

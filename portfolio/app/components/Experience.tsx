@@ -65,7 +65,7 @@ const Experience = () => {
       <h1 className='heading text-purple text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-6 sm:mb-8 md:mb-10' color='text-black'>
         We are a 360° Marketing{' '}
         <span className='text-black'>
-          Agency specializing in
+          Agency 
         </span>
       </h1>
       <div className='w-full mt-6 sm:mt-8 md:mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10'>

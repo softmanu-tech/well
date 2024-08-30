@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaHome, FaShoppingBag, FaBriefcase, FaCommentAlt, FaDollarSign, FaBars, FaTimes, FaUsers } from 'react-icons/fa';
+import { FaHome, FaShoppingBag, FaBriefcase, FaCommentAlt, FaDollarSign, FaBars, FaTimes, FaUsers,FaInfoCircle } from 'react-icons/fa';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,10 +31,13 @@ const Navbar: React.FC = () => {
 
   const menuItems = [
     { name: 'Home', icon: <FaHome size={20} /> },
-    { name: 'Shop', icon: <FaShoppingBag size={20} /> },
+    { name: 'About', icon: <FaInfoCircle size={20} /> },
+    
     { name: 'Services', icon: <FaBriefcase size={20} /> },
-    { name: 'Career', icon: <FaUsers size={20} /> },
+    
     { name: 'Testimonials', icon: <FaCommentAlt size={20} /> },
+    { name: 'Careers', icon: <FaUsers size={20} /> },
+    { name: 'Shop', icon: <FaShoppingBag size={20} /> },
     { name: 'Pricing', icon: <FaDollarSign size={20} /> },
   ];
 
@@ -105,7 +108,7 @@ const Navbar: React.FC = () => {
             className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm transition-opacity" 
             onClick={() => setIsOpen(false)}
           ></div>
-          <div className="relative w-64 max-w-sm bg-white shadow-xl flex flex-col justify-start pt-20 px-4 transition-transform duration-300 ease-in-out transform translate-x-0">
+          <div className="relative top-6 w-64 max-w-sm bg-white shadow-xl flex flex-col justify-start pt-20 px-4 transition-transform duration-300 ease-in-out transform translate-x-0">
             {menuItems.map((item) => (
               <a
                 key={item.name}

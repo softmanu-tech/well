@@ -13,16 +13,13 @@ const Approach= ()=> {
         </h1>
       <div className="my-20 py-2 flex flex-col lg:flex-row items-center justify-center  dark:bg-purple w-full gap-4 ">
         <Card title="Exploratory Research" icon={<AceternityIcon order="Phase 1"/>}
-            description={`
-            Identify the significance of market research for your business
-            Define research objectives and questions
-            Conduct preliminary competitor analysis
-            Explore potential market opportunities
-            Gather initial customer insights and pain points
-            Review existing literature and secondary data sources
-            Develop hypotheses for further investigation
-                
-                `}
+                description={`
+                  • We define research objectives and key questions
+                  • Conduct initial competitor analysis
+                  • Identify market opportunities and customer pain points
+                  • Review existing data and develop hypotheses
+                  • Lay groundwork for in-depth investigation
+                  `}
         >
           <CanvasRevealEffect
             animationSpeed={5.1}
@@ -30,16 +27,14 @@ const Approach= ()=> {
           />
         </Card>
         <Card title="Descriptive Research" icon={<AceternityIcon order="Phase 2"/>}
-            description={`
-                Design surveys and questionnaires for quantitative data collection
-                Conduct in-depth interviews or focus groups for qualitative insights
-                Analyze customer communication patterns and preferences
-                Measure current market trends and consumer behaviors
-                Assess your company's current market position
-                Evaluate the competitive landscape in detail
-                Collect demographic and psychographic data on target customers
-
-                `}
+                description={`
+                  • Design and conduct quantitative and qualitative research
+                  • Analyze market trends and consumer behaviors
+                  • Assess your company's current market position
+                  • Gather demographic and psychographic data
+                  • Evaluate the competitive landscape in detail
+                  • Collect demographic and psychographic data on target customers
+                  `}
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -54,17 +49,17 @@ const Approach= ()=> {
           <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" />
         </Card>
         <Card
-             title="Explanatory and Strategic Research" 
+             title="Strategic Research" 
                 icon={<AceternityIcon  order="Phase 3"/>}
-            description={`
-                    Analyze collected data to test hypotheses and draw conclusions
-                    Identify key factors for staying ahead of competitors
-                    Develop strategies for landing new opportunities in the market
-                    Create action plans for improved communication with customers
-                    Formulate recommendations for product/service improvements
-                    Conduct predictive analysis for future market trends
-                    Prepare a comprehensive market research report with actionable insights
-                `}
+                description={`
+                  • We analyze data to validate hypotheses
+                  • Identify competitive advantages
+                  • Develop market expansion strategies
+                  • Create customer engagement action plans
+                  • Formulate product improvement recommendations
+                  • Predict future market trends
+                  • Deliver actionable insights report
+                  `}
         >
           <CanvasRevealEffect
             animationSpeed={3}

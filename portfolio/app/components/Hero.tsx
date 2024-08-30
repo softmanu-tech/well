@@ -12,21 +12,27 @@ interface MagicButtonProps {
 
 const MagicButton: React.FC<MagicButtonProps> = ({ title, icon, position, className }) => {
   return (
-    <button className={`flex items-center justify-center space-x-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full transition duration-300 ease-in-out transform hover:scale-105 ${className} shadow-lg hover:shadow-xl active:shadow-md relative overflow-hidden`}>
-      <span className="absolute inset-0 bg-black opacity-20"></span>
-      <span className="relative z-10 flex items-center justify-center">
+    <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+      <span className=" absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"></span>
+      <span className="relative z-10 flex justify-centerinline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-5 py-1 text-sm font-medium text-white backdrop-blur-3xl">
         {position === 'left' && icon}
         <span>{title}</span>
         {position === 'right' && icon}
       </span>
     </button>
+    
   );
 };
 
 const Hero: React.FC = () => {
   return (
     <div className="relative w-full min-h-[60vh] sm:min-h-[80vh] md:h-screen overflow-hidden" id='home'>
-      {/* Video Background */}
+      {/* Video Background   <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-5 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+                    Get Started
+              </span>
+            </button>*/}
       <video 
         autoPlay 
         loop 
@@ -54,7 +60,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Ignite Your Brand<br className="hidden sm:inline" /> with Sizzle Africa Marketing Limited
+            Ignite Your Brand<br className="hidden sm:inline" /> with <span className='text-purple'> Sizzle Africa Marketing Limited</span>
           </motion.h1>
 
           <motion.p 
@@ -66,7 +72,27 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Innovative Marketing Solutions<br className="hidden sm:inline" /> Defining Excellence For You.
+            <span className=''
+              style={{
+                
+                fontFamily: 'Freight Text',
+              }}
+            
+            
+            >The Leading  provider of innovative
+            marketing Solutions</span><br className="hidden sm:inline" /> <span className='text-black  sm:text-sm'
+
+                style={{
+                  
+                  fontFamily: "'Kepler Std', serif",
+                  fontWeight: "bold",
+                  fontSize: "1.5rem",
+                  
+                  
+                }}
+            
+            
+            >Defining Excellence for  YOU</span>.
           </motion.p>
 
           <motion.div 
@@ -80,14 +106,16 @@ const Hero: React.FC = () => {
                 title="Discover Our Work"
                 icon={<FaLocationArrow />}
                 position='right'
-                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg bg-purple border-b-4 border-purple-700 hover:border-b-0 hover:translate-y-1 transition-all duration-300 ease-out"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg bg-purple border-b-4 border-purple-700 hover:border-b-0 hover:translate-y-1 transition-all duration-300 ease-out "
               />
             </Link>
             <Link href="#contact" passHref>
-              <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-black text-white rounded-full hover:bg-purple transition-all duration-300 ease-out border-b-4 border-gray-800 hover:border-b-0 hover:translate-y-1 text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl active:shadow-md relative overflow-hidden">
+              <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-black text-white rounded-full hover:bg-purple transition-all duration-300 ease-out border-b-4 border-gray-800 hover:border-b-0 hover:translate-y-1 text-base sm:text-lg font-bold shadow-lg hover:shadow-xl active:shadow-md relative overflow-hidden">
+              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                 <span className="absolute inset-0 bg-white opacity-20"></span>
-                <span className="relative z-10">Contact Us</span>
+                <span className="relative z-10 inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-1 py-1 text-sm font-medium text-white backdrop-blur-3xl">Contact Us</span>
               </button>
+              
             </Link>
           </motion.div>
         </div>

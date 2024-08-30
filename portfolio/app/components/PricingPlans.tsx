@@ -14,29 +14,19 @@ const pricingData: PricingData[] = [
     premium: "132,500",
     elite: "192,500"
   },
+  
+  
   {
-    service: "YouTube",
-    basic: "42,120",
-    premium: "42,120 ",
-    elite: "42,120"
+    service: "Website Development(Blogs, Portfolios, Product Landing Pages, Online Gallaries, Artiest Portfolios , Lead Generation Pages,Kinyozi & Saloon Beauty Shop)",
+    basic: "28,000",
+    premium: "40,500 ",
+    elite: "60,000"
   },
   {
-    service: "YouTube Ads",
-    basic: "42,120",
-    premium: "115,300 ",
-    elite: "280,000"
-  },
-  {
-    service: "Web Development",
-    basic: "48,000",
-    premium: "239,500 ",
-    elite: "231,000"
-  },
-  {
-    service: "eCommerce Website Design",
-    basic: "61,000",
-    premium: "61,000",
-    elite: "61,000"
+    service: "eCommerce Website Design, Wikis and Knowledge Bases, Resource Websites",
+    basic: "60,000",
+    premium: "110,000",
+    elite: "150,000"
   },
   {
     service: "Email Marketing",
@@ -45,23 +35,36 @@ const pricingData: PricingData[] = [
     elite: "77,500"
   },
   {
-    service: "TikTok Advertising",
-    basic: "35,000",
-    premium: "120,000 ",
-    elite: "...based on the work scope"
+    service: "LMS Websites, E-library, Hospital,Hotel, University and School Websites,Real Estate Websites",
+    basic: "60,000",
+    premium: "110,000",
+    elite: "250,000"
   },
+  
   {
     service: "Search Engine Optimization (SEO)",
     basic: "43,000",
     premium: "107,000 ",
-    elite: "...based on the work scope"
+    elite: "custom based on the work scope"
   },
   {
     service: "Google Ads/Pay-Per-Click Advertising (PPC)",
     basic: "55,000",
     premium: "100,000",
     elite: "200,000 "
-  }
+  },
+  {
+    service: "POS Website Development, Goverment Websites, Charity Websites, Church Management System,Uber",
+    basic: "60,000",
+    premium: "110,000",
+    elite: "190,000"
+  },
+  {
+    service: "Web Portals, Content Aggregators, Subscription-Based Websites, Community-Based Sites,  Job Portals, ",
+    basic: "40,000",
+    premium: "100,000",
+    elite: "150,000"
+  },
 ];
 
 const PricingTable: React.FC = () => {

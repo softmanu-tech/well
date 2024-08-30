@@ -78,7 +78,7 @@ export const navItems = [
       id: 2,
       title: "I need a heading here from MJ and the particular link to the post",
       des: "AND A DESCRIPTION OF THE IMAGE",
-      img: "/h2.jpeg",
+      img: "/safi.jpeg",
       iconLists: ["/insta.svg", "/link.svg", "/ts.svg", "/stream.svg", "/c.svg"],
       link: "",
     },
@@ -179,7 +179,7 @@ export const navItems = [
       title: "Elevate Your Brand, Attract Customers",
       desc: "Let us help you tell your unique story and make a lasting impression that drives business growth.Our corporate branding services help you create a powerful, cohesive identity that resonates with your target audience.We craft compelling visual and messaging elements that capture your company's essence, setting you apart in a crowded marketplace. ",
       className: "md:col-span-2",
-      thumbnails: ["/exp1.svg", "/exp2.svg/","/exp3.svg"]
+      thumbnails: ["/a1.jpeg", "/a2.jpeg/","/a3.jpeg","/a4.png","/a5.jpg","/a6.jpg"]
     },
     {
       id: 2,
@@ -193,7 +193,7 @@ export const navItems = [
       title: " Promotional merchandise gift items, marketing collaterals",
       desc: "From pens to power banks, we offer a wide range of customizable items to showcase your brand in style.Delight clients and employees with thoughtful, branded gifts that leave a lasting impression.",
       className: "md:col-span-2", // change to md:col-span-2
-      thumbnails: ["/exp3.svg"]
+      thumbnails: ["/b1.png","/b2.png","/b4.png", "/b3.png"]
     },
     {
       id: 4,
@@ -221,7 +221,7 @@ export const navItems = [
       title: "Brand Ambassadors: Your Brand's Human Touch",
       desc: "Let our team of charismatic professionals become the face of your brand, creating meaningful connections and leaving lasting impressions.Increased brand awareness, Authentic customer connections, Boosted sales and lead generation, Valuable market insights.",
       className: "md:col-span-2", // change to md:col-span-2
-      thumbnails: ["/exp3.svg"]
+      thumbnails: ["/g1.jpeg","/g2.jpeg","g3.jpg", "h1.jpeg","h4.jpeg"]
     },
     {
       id: 4,
