@@ -13,7 +13,7 @@ const LoyaltyProgram: React.FC = () => {
         <h1 className="text-4xl font-extrabold text-center mb-8">Elevate Your Success: Join Our Exclusive Loyalty Program</h1>
         
         <p className="text-xl text-center mb-12">
-          As our esteemed partner, we're committed to recognizing and rewarding your invaluable support. 
+          As our esteemed partner, we&apos;re committed to recognizing and rewarding your invaluable support. 
           Embark on a journey of unprecedented benefits and opportunities!
         </p>
 
@@ -24,7 +24,7 @@ const LoyaltyProgram: React.FC = () => {
               <FaMedal className="text-yellow-400 text-3xl mr-4 mt-1" />
               <div>
                 <h3 className="text-xl font-semibold mb-2">Referral Rewards</h3>
-                <p>Earn a 10% bonus from your referral's first month payment when they become our client.</p>
+                <p>Earn a 5% bonus from your referral&apos;s first month payment when they become our client.</p>
               </div>
             </div>
             <div className="flex items-start">
@@ -50,7 +50,7 @@ const LoyaltyProgram: React.FC = () => {
             </li>
             <li className="flex items-center">
               <FaChartLine className="text-green-400 text-2xl mr-4" />
-              <span>Tailored marketing consultations to skyrocket your brand's performance</span>
+              <span>Tailored marketing consultations to skyrocket your brand&apos;s performance</span>
             </li>
             <li className="flex items-center">
               <FaGift className="text-pink-400 text-2xl mr-4" />
@@ -62,7 +62,7 @@ const LoyaltyProgram: React.FC = () => {
         <div className="text-center">
           <p className="text-xl mb-6">
             Seize the opportunity to transform your loyalty into tangible success. 
-            Join our Loyalty Program today and let's redefine excellence for your brand together.
+            Join our Loyalty Program today and let&apos;s redefine excellence for your brand together.
           </p>
           <button 
             onClick={handleSignUp}
