@@ -54,7 +54,7 @@ const pricingData: PricingData[] = [
     elite: "200,000 "
   },
   {
-    service: "POS Website Development, Goverment Websites, Charity Websites, Church Management System,Uber",
+    service: "POS Website Development, Goverment Websites, Charity Websites, Church Management System",
     basic: "60,000",
     premium: "110,000",
     elite: "190,000"

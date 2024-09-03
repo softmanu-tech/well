@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaHome, FaShoppingBag, FaBriefcase, FaCommentAlt, FaDollarSign, FaBars, FaTimes, FaUsers,FaInfoCircle } from 'react-icons/fa';
+import { FaHome, FaShoppingBag, FaBriefcase, FaCommentAlt, FaTrophy,FaGift, FaBars, FaTimes, FaUsers,FaInfoCircle } from 'react-icons/fa';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,11 +34,12 @@ const Navbar: React.FC = () => {
     { name: 'About', icon: <FaInfoCircle size={20} /> },
     
     { name: 'Services', icon: <FaBriefcase size={20} /> },
-    
-    { name: 'Testimonials', icon: <FaCommentAlt size={20} /> },
-    { name: 'Careers', icon: <FaUsers size={20} /> },
     { name: 'Shop', icon: <FaShoppingBag size={20} /> },
-    { name: 'Pricing', icon: <FaDollarSign size={20} /> },
+    { name: 'Careers', icon: <FaUsers size={20} /> },
+    { name: 'Testimonials', icon: <FaCommentAlt size={20} /> },
+    
+    
+    { name: 'Loyalty Program', icon: <FaGift size={20} /> },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -54,8 +55,8 @@ const Navbar: React.FC = () => {
     <>
       <nav
         className={`fixed top-10 left-0 right-0 z-50 transition-all duration-300 ${
-          isOpen ? 'bg-white' : isSticky ? 'bg-white/70' : 'bg-transparent'
-        } backdrop-blur-md`}
+          isOpen ? 'bg-white' : isSticky ? 'bg-/70' : 'bg-transparent'
+        } transparent-md`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">

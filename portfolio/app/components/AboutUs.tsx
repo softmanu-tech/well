@@ -13,15 +13,15 @@ const AboutUs = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden" id='about'>
+    <div className="relative min-h-screen min-w-screen flex items-center justify-center overflow-hidden" id='about'>
       {/* Video Background with Darkening Overlay */}
-      <div className="absolute inset-0 z-10">
+      <div className="absolute inset-0 z-10 w-full h-full">
         <div className="absolute inset-0 bg-purple opacity-60 z-30"></div>
         <video 
           autoPlay 
           loop 
           muted 
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 object-cover h-full w-full"
         >
           <source src="/vid.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -66,7 +66,7 @@ const AboutUs = () => {
             variants={fadeIn}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-6 bg-slate-300 hover:bg-purple text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out text-base sm:text-lg"
+            className="mt-6 bg-purple hover:bg-slate-300 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out text-base sm:text-lg"
             onClick={handleLearnMore}
           >
             Read More..

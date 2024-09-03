@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import { FaLocationArrow } from 'react-icons/fa';
+import { FaSearch ,FaPhoneAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+
 
 interface MagicButtonProps {
   title: string;
@@ -14,10 +15,10 @@ const MagicButton: React.FC<MagicButtonProps> = ({ title, icon, position, classN
   return (
     <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
       <span className=" absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"></span>
-      <span className="relative z-10 flex justify-centerinline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-5 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-        {position === 'left' && icon}
-        <span>{title}</span>
+      <span className="relative z-10 flex justify-centerinline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-5 py-2 text-sm font-medium text-white backdrop-blur-3xl">
         {position === 'right' && icon}
+        <span>{title}</span>
+        {position === 'left' && icon}
       </span>
     </button>
     
@@ -26,7 +27,7 @@ const MagicButton: React.FC<MagicButtonProps> = ({ title, icon, position, classN
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative w-full min-h-[60vh] sm:min-h-[80vh] md:h-screen overflow-hidden" id='home'>
+    <div className=" w-full min-h-[60vh] sm:min-h-[80vh] md:h-screen overflow-hidden" id='home'>
       {/* Video Background   <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
               <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-5 py-1 text-sm font-medium text-white backdrop-blur-3xl">
@@ -40,7 +41,7 @@ const Hero: React.FC = () => {
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover"
       >
-        <source src="/path-to-your-video.mp4" type="video/mp4" />
+        <source src="/vid.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -80,7 +81,7 @@ const Hero: React.FC = () => {
             
             
             >The Leading  provider of innovative
-            marketing Solutions</span><br className="hidden sm:inline" /> <span className='text-black  sm:text-sm'
+            marketing Solutions &  branding</span><br className="hidden sm:inline" /> <span className='text-black  sm:text-sm'
 
                 style={{
                   
@@ -101,22 +102,27 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Link href="#about" passHref>
-              <MagicButton 
-                title="Discover Our Work"
-                icon={<FaLocationArrow />}
-                position='right'
-                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg bg-purple border-b-4 border-purple-700 hover:border-b-0 hover:translate-y-1 transition-all duration-300 ease-out "
-              />
-            </Link>
-            <Link href="#contact" passHref>
-              <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-black text-white rounded-full hover:bg-purple transition-all duration-300 ease-out border-b-4 border-gray-800 hover:border-b-0 hover:translate-y-1 text-base sm:text-lg font-bold shadow-lg hover:shadow-xl active:shadow-md relative overflow-hidden">
+           
+            <Link href="#service" passHref>
+              <button className="w-full sm:w-auto px-6 sm:px-8 py-1 sm:py-4 bg-black text-white rounded-full hover:bg-purple transition-all duration-300 ease-out border-b-4 border-gray-800 hover:border-b-0 hover:translate-y-1 text-base sm:text-lg font-bold shadow-lg hover:shadow-xl active:shadow-md relative overflow-hidden">
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                 <span className="absolute inset-0 bg-white opacity-20"></span>
-                <span className="relative z-10 inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-1 py-1 text-sm font-medium text-white backdrop-blur-3xl">Contact Us</span>
+                <span className="relative z-10 inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-1 py-1 text-sm font-medium text-white backdrop-blur-2xl">
+                < FaSearch className="h-6 w-6 mr-2" />
+                  Discover Our Work</span>
               </button>
               
             </Link>
+            <Link href="#contact" passHref>
+              <MagicButton 
+                icon={<FaPhoneAlt  className="h-5 w-5 mr-2"/>}
+                title="Contact Us"
+                
+                position='right'
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg bg-purple border-b-4 border-purple-700 hover:border-b-0 hover:translate-y-1 transition-all duration-300 ease-out "
+              />
+          </Link>
+            
           </motion.div>
         </div>
       </div>

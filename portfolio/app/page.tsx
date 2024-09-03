@@ -19,6 +19,8 @@ import PricingPlans from "./components/PricingPlans";
 import AboutUs from "./components/AboutUs";
 import Card3D from "./components/3D";
 import ScrollingCards from "./components/ScrollingCards";
+import ServiceTable from "./components/ServiceTable";
+import LoyaltyProgram from "./components/LoyaltyProgram";
 
 
 
@@ -34,10 +36,12 @@ export default function Home() {
           <ScrollingCards/>
           <RecentProjects/>
           <Clients />
+          <ServiceTable/>
           
           <ScrollingPortfolio/>
-          <PricingPlans/>
+          
           <Approach/>
+          <LoyaltyProgram/>
           <Footer/>
         </div>
       </main>

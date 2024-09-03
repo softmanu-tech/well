@@ -18,7 +18,7 @@ const ScrollingPortfolio: React.FC = () => {
   return (
     <div className='py-15'>
       <h2 className="text-4xl font-bold mb-6 text-center">
-        <span className="text-purple">Works &</span> <span className="text-black">Portfolio</span>
+        <span className="text-purple">Our Clients &</span> <span className="text-black">Partners</span>
       </h2>
       <div className="w-full overflow-hidden bg-purple-600 p-8 m-4 md:p-12 md:m-6 rounded-lg">
         <div className="flex flex-col md:flex-row justify-between items-center">
@@ -40,10 +40,9 @@ const ScrollingPortfolio: React.FC = () => {
           </div>
           <div className="w-full md:w-1/3 md:pl-8 sm:w-full">
             <p className="text-purple text-sm md:text-base">
-              We&apos;ve had the privilege of collaborating with a wide range of clients, both big and
-              small, and have consistently exceeded their expectations. We take immense pride
-              in <span className="text-brown-300 font-semibold">showcasing an array of diverse projects</span> that span various industries and
-              markets.
+            We have had the privilege of collaborating with a wide range of clients. We take immerse pride in    
+               <span className="text-brown-300 font-semibold"> re-defining excellence for brands</span> and providing innovative marketing solutions.
+              
             </p>
           </div>
         </div>

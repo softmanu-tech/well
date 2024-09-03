@@ -14,7 +14,7 @@ export const sendContributeEmail = async (data: QuoteFormData) => {
   await resend.emails.send({
     from: "onboarding@resend.dev",
     to: admins,
-    subject: "Contribute to the AI Startups Database",
+    subject: "REQUESITION OF QUATATION",
     html: `email:${email}, name:${name},service:${service}, message:${message}, phone:${phone}`
   });
 
