@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import QuoteRequestForm from './QuoteRequestForm';
+import { FaLocationArrow } from 'react-icons/fa';
+import MagicButton from './ui/MagicButton';
 
 interface Service {
   name: string;
@@ -12,36 +15,39 @@ const services: Service[] = [
       { name: 'Airline', items: ['Aircraft wraps', 'E-Ticket', 'Website Adverts', 'Trays', 'Headrest', 'Merchandise'] },
       { name: 'Automotive', items: ['Car branding'] },
       { name: 'FMCG', items: ['Branding FMCG', 'Promotional kiosk'] },
-      { name: 'Hospitals', items: [] },
+      { name: 'Hospitals', items: ['Logos & Visual Identity','Community Outreach','Marketing Materials','Staff Uniforms'] },
     ],
   },
   {
-    name: 'BTL/ATL Services',
+    name: 'ATL(Above-The-Line) Services',
     subcategories: [
-      { name: 'Events', items: [] },
-      { name: 'Billboards', items: [] },
-      { name: 'TVC (TV Adverts)', items: [] },
-      { name: 'Print Media', items: [] },
+      { name: 'Brand Ambassadors', items: [] },
+      { name: 'Outdoor Advertising', items: [] },
+      { name: 'Television Advertising)', items: [] },
+      { name: 'Print Advertising', items: ['Newspapers','Billboards','Magazines'] },
+      { name: 'Radio Advertising', items: ['creating audio ads for radio stations'] },
+      { name: 'Public Relations', items: ['Brand awareness,credibility & reputation',] },
     ],
+  },
+  {
+    name: 'BTL(Below-The-Line) Services',
+    subcategories: [
+      { name: 'Digital Marketing', items: ['Social Media Marketing', 'Email Marketing','Google Ads', 'Pay-Per-Click']},
+      { name: 'Event Management', items: ['Event Conceptualization', 'Event Execution']},
+      { name: 'Promotional Merchandise', items: ['Promotional Products', 'Branded products']},
+      { name: 'Loyalty Programs', items: ['Rewarding repeat customers']},
+      { name: 'Experiential Marketing', items:['Team Building']}
+    ]
   },
   {
     name: 'Website Development',
     subcategories: [
-      { name: 'Commercial Websites', items: [] },
-      { name: 'Personal Websites', items: [] },
-      { name: 'Management Websites', items: [] },
+      { name: 'Commercial Websites', items: ['eCommerce',' Airbnb','Retailer Websites','Online Travel', 'Food Delivery'] },
+      { name: 'Personal Websites', items: ['Blogs','Portfolio','Wix','Diaries','Live Journal','Tumblr'] },
+      { name: 'Management Websites', items: ['P.O.S','Project Management Tools','CMS','LMS','Housing','Hotel Management Systems','Church Management Systems','Hospital Management Systems'] },
     ],
   },
-  {
-    name: 'Website Marketing Services',
-    subcategories: [
-      { name: 'SEO', items: [] },
-      { name: 'PPC', items: [] },
-      { name: 'Email Marketing', items: [] },
-      { name: 'Google Ads', items: [] },
-      { name: 'Social Media Marketing', items: [] },
-    ],
-  },
+  
   {
     name: 'Business Intelligence and Mentorship',
     subcategories: [
@@ -66,6 +72,11 @@ const ServiceTable: React.FC = () => {
     setShowModal(false);
     setSelectedService('');
   };
+  const [isFormVisible, setIsFormVisible] = useState(false);
+
+  const toggleFormVisibility = () => {
+    setIsFormVisible(!isFormVisible);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple to-indigo-900 p-4 md:p-8" id='service'>
@@ -77,7 +88,7 @@ const ServiceTable: React.FC = () => {
               <thead>
                 <tr>
                   <th className="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Service</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Subcategories</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Categories</th>
                   <th className="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Actions</th>
                 </tr>
               </thead>
@@ -95,15 +106,30 @@ const ServiceTable: React.FC = () => {
                       </ul>
                     </td>
                     <td className="px-4 py-4 whitespace-nowrap text-sm font-medium">
-                      <button
-                        onClick={() => handleRequestQuote(service.name)}
-                        className="relative inline-flex h-10 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-purple-300"
-                      >
-                        <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-                        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-purple px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-                          Request Quotation
-                        </span>
-                      </button>
+                    <div className='flex items-center blur-bg{filter: blur(5px) opacity:0.3} '>
+                        <a onClick={toggleFormVisibility} className="inline-block cursor-pointer">
+                        <MagicButton 
+                            title="Request Quotation"
+                            icon={<FaLocationArrow />}
+                            position="right"
+                        />
+                        </a>
+                        {isFormVisible && (
+                        <div className="fixed inset-0  bg-opacity-50 flex justify-center items-center z-50">
+                            <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-md" onClick={toggleFormVisibility}></div>
+                            <div className="relative bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg p-6 rounded-lg shadow-lg  max-w-md w-full m-4">
+                            <button 
+                                onClick={toggleFormVisibility}
+                                className=" absolute top-2 right-2 float-right text-white hover:text-gray-900"
+                            >
+                                ✕
+                            </button>
+                            <QuoteRequestForm />
+                            </div>
+                        </div>
+                        )}
+                    </div>
+                      
                     </td>
                   </tr>
                 ))}
@@ -117,67 +143,8 @@ const ServiceTable: React.FC = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="bg-white bg-opacity-10 backdrop-blur-lg p-6 rounded-lg shadow-lg w-full max-w-md m-4">
             <h2 className="text-2xl text-white font-bold mb-4">Request Quotation for {selectedService}</h2>
-            <form>
-              <div className="mb-4">
-                <label className="block text-white text-sm font-bold mb-2" htmlFor="brandName">
-                  Brand Name
-                </label>
-                <input
-                  className="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white bg-opacity-50"
-                  id="brandName"
-                  type="text"
-                  placeholder="Your Brand Name"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-white text-sm font-bold mb-2" htmlFor="email">
-                  Email
-                </label>
-                <input
-                  className="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white bg-opacity-50"
-                  id="email"
-                  type="email"
-                  placeholder="Your Email"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-white text-sm font-bold mb-2" htmlFor="contact">
-                  Contact
-                </label>
-                <input
-                  className="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white bg-opacity-50"
-                  id="contact"
-                  type="text"
-                  placeholder="Your Contact Number"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-white text-sm font-bold mb-2" htmlFor="summary">
-                  Summary
-                </label>
-                <textarea
-                  className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white bg-opacity-50"
-                  id="summary"
-                  placeholder="Brief summary of your request"
-                  rows={4}
-                ></textarea>
-              </div>
-              <div className="flex justify-between">
-                <button
-                  type="button"
-                  className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-full transition-colors"
-                  onClick={handleCloseModal}
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition-colors"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
+                
+            
           </div>
         </div>
       )}

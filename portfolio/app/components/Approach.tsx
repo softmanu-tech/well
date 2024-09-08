@@ -7,7 +7,7 @@ import { CanvasRevealEffect } from "@/app/components/ui/CanvasRevealEffect";
 
 const Approach= ()=> { 
   return (
-    <section className="w-full py-20">
+    <section className="max-w-7xl mx-auto px-10 py-20">
         <h1 className="heading text-black">
         Market Research & <span className="text-purple">Case Studies</span>
         </h1>

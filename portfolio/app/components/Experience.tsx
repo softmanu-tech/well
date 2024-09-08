@@ -61,7 +61,7 @@ const ExperienceCard = ({ card }: { card: ExperienceCardProps }) => {
 
 const Experience = () => {
   return (
-    <div className='py-10 sm:py-16 md:py-20' id='services'>
+    <div className=' py-10 sm:py-16 md:py-20' id='services'>
       <h1 className='heading text-purple text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-6 sm:mb-8 md:mb-10' color='text-black'>
         We are a 360° Marketing{' '}
         <span className='text-black'>

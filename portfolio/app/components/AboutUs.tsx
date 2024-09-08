@@ -34,7 +34,7 @@ const AboutUs = () => {
         animate="visible"
         variants={fadeIn}
         transition={{ duration: 0.8 }}
-        className="z-30 text-white text-center px-4 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto"
+        className="z-30 text-white text-center p w-full  mx-auto"
       >
         <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-8 sm:p-12 rounded-lg shadow-xl">
           <motion.h1 

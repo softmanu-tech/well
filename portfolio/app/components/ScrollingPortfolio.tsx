@@ -7,7 +7,6 @@ interface Logo {
 }
 
 const logos: Logo[] = [
-  { src: "./saf.svg", alt: "SAF Logo" },
   { src: "./saf1.svg", alt: "SAF1 Logo" },
   { src: "./m.svg", alt: "M Logo" },
   { src: "./sob.svg", alt: "SOB Logo" },
@@ -16,36 +15,41 @@ const logos: Logo[] = [
 
 const ScrollingPortfolio: React.FC = () => {
   return (
-    <div className='py-15'>
-      <h2 className="text-4xl font-bold mb-6 text-center">
-        <span className="text-purple">Our Clients &</span> <span className="text-black">Partners</span>
-      </h2>
-      <div className="w-full overflow-hidden bg-purple-600 p-8 m-4 md:p-12 md:m-6 rounded-lg">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="w-full md:w-2/3 overflow-hidden mb-6 md:mb-0">
-            <motion.div 
-              className="flex"
-              initial={{ x: "0%" }}
-              animate={{ x: "-50%" }}
-              transition={{
-                x: { repeat: Infinity, repeatType: "loop", duration: 20, ease: "linear" },
-              }}
-            >
-              {[...logos, ...logos].map((logo, index) => (
-                <div key={index} className="flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 mx-4">
-                  <img src={logo.src} alt={logo.alt} className="w-full h-full object-contain" />
-                </div>
-              ))}
-            </motion.div>
-          </div>
-          <div className="w-full md:w-1/3 md:pl-8 sm:w-full">
-            <p className="text-purple text-sm md:text-base">
-            We have had the privilege of collaborating with a wide range of clients. We take immerse pride in    
-               <span className="text-brown-300 font-semibold"> re-defining excellence for brands</span> and providing innovative marketing solutions.
-              
-            </p>
-          </div>
-        </div>
+    <div className=" max-w-7xl mx-auto flex flex-col items-center py-8 bg-gray-100">
+      <h2 className="text-3xl font-bold  text-black mb-6">Our Clients & Partners</h2>
+      
+      {/* Text Section - Now on top for small screens */}
+      <div className="w-full max-w-3xl px-4 mb-8 text-center">
+        <p className="text-gray-700">
+          We have had the privilege of collaborating with a wide range of clients. We take immense pride in 
+          re-defining excellence for brands and providing innovative marketing solutions.
+        </p>
+      </div>
+
+      {/* Icon Section */}
+      <div className="w-full overflow-hidden">
+        <motion.div 
+          className="flex"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ 
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 20,
+              ease: "linear",
+            },
+          }}
+        >
+          {[...logos, ...logos].map((logo, index) => (
+            <div key={index} className="flex-shrink-0 mx-4">
+              <img 
+                src={logo.src} 
+                alt={logo.alt} 
+                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain" // Increased sizes for different screen sizes
+              />
+            </div>
+          ))}
+        </motion.div>
       </div>
     </div>
   );

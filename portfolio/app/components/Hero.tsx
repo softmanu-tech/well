@@ -80,8 +80,8 @@ const Hero: React.FC = () => {
               }}
             
             
-            >The Leading  provider of innovative
-            marketing Solutions &  branding</span><br className="hidden sm:inline" /> <span className='text-black  sm:text-sm'
+            >The Leading  Provider of Innovative
+            Marketing Solutions &  Corprate Branding</span><br className="hidden sm:inline" /> <span className='text-black  sm:text-sm'
 
                 style={{
                   
@@ -93,7 +93,7 @@ const Hero: React.FC = () => {
                 }}
             
             
-            >Defining Excellence for  YOU</span>.
+            ></span>
           </motion.p>
 
           <motion.div 

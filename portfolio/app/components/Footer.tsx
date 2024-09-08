@@ -56,7 +56,7 @@ const Footer = () => {
         </div>
         <div className="flex mt-16 md:flex-row flex-col justify-between items-center">
         <p className="md:text-base text-sm md:font-normal  text-purple font-light">
-          Copyright © 2024 Sizzle Africa Marketing Limited
+          Copyright © 2024 Sizzle Africa Marketing 
         </p>
 
         <div className="flex items-center md:gap-3 gap-6">

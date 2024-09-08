@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import link from 'next/link'
 import { FaHome, FaShoppingBag, FaBriefcase, FaCommentAlt, FaTrophy,FaGift, FaBars, FaTimes, FaUsers,FaInfoCircle } from 'react-icons/fa';
+import Link from 'next/link';
+
+
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,24 +35,30 @@ const Navbar: React.FC = () => {
   }, [isOpen]);
 
   const menuItems = [
-    { name: 'Home', icon: <FaHome size={20} /> },
-    { name: 'About', icon: <FaInfoCircle size={20} /> },
+    { name: 'Home', icon: <FaHome size={20} />, href: '/' },
+    { name: 'About', icon: <FaInfoCircle size={20} /> , href: '/#about'},
     
-    { name: 'Services', icon: <FaBriefcase size={20} /> },
-    { name: 'Shop', icon: <FaShoppingBag size={20} /> },
-    { name: 'Careers', icon: <FaUsers size={20} /> },
-    { name: 'Testimonials', icon: <FaCommentAlt size={20} /> },
+    { name: 'Services', icon: <FaBriefcase size={20} />, href:'/#services' },
+    { name: 'Shop', icon: <FaShoppingBag size={20} /> , href:'/shop'},
+    { name: 'Careers', icon: <FaUsers size={20} />, href:'/#careers' },
+    { name: 'Testimonials', icon: <FaCommentAlt size={20} />, href:'/#testimonials' },
     
     
-    { name: 'Loyalty Program', icon: <FaGift size={20} /> },
+    { name: 'Loyalty Program', icon: <FaGift size={20} />, href:'/loyalty-program' },
   ];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    e.preventDefault();
-    const targetElement = document.getElementById(targetId);
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    
+    if (href.startsWith('/#')){
+      const targetId =href.substring(2);
+      const targetElement = document.getElementById(targetId);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth' });
     }
+
+    }    
+    
+    
     setIsOpen(false);
   };
 
@@ -70,8 +81,8 @@ const Navbar: React.FC = () => {
                 {menuItems.map((item) => (
                   <a
                     key={item.name}
-                    href={`#${item.name.toLowerCase().replace(' ', '-')}`}
-                    onClick={(e) => handleNavClick(e, item.name.toLowerCase().replace(' ', '-'))}
+                    href={`${item.href.toLowerCase()}`}
+                    onClick={(e) => handleNavClick(e, item.href.toLowerCase().replace(' ', '-'))}
                     className={`px-3 py-2 rounded-md text-sm font-medium flex items-center transition-all duration-300 ${
                       isSticky || isOpen
                         ? 'hover:bg-gray-100'
@@ -91,8 +102,8 @@ const Navbar: React.FC = () => {
             <div className="md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white ${
-                  isSticky || isOpen ? 'text-gray-400 hover:text-gray-500 hover:bg-gray-100' : 'text-white hover:bg-white/10'
+                className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black ${
+                  isSticky || isOpen ? 'text-gray-400 hover:text-gray-500 hover:bg-gray-100' : 'text-purple hover:bg-white/10'
                 }`}
               >
                 <span className="sr-only">Open main menu</span>
@@ -111,10 +122,10 @@ const Navbar: React.FC = () => {
           ></div>
           <div className="relative top-6 w-64 max-w-sm bg-white shadow-xl flex flex-col justify-start pt-20 px-4 transition-transform duration-300 ease-in-out transform translate-x-0">
             {menuItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={`#${item.name.toLowerCase().replace(' ', '-')}`}
-                onClick={(e) => handleNavClick(e, item.name.toLowerCase().replace(' ', '-'))}
+                href={`${item.href.toLowerCase()}`}
+                onClick={(e) => handleNavClick(e, item.href.toLowerCase().replace(' ', '-'))}
                 className="hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium flex items-center mb-2 transform hover:scale-105 transition-all duration-300"
                 style={{
                   textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
@@ -123,7 +134,7 @@ const Navbar: React.FC = () => {
               >
                 <span className="text-black">{item.icon}</span>
                 <span className="ml-2 text-purple">{item.name}</span>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

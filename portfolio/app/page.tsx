@@ -21,6 +21,8 @@ import Card3D from "./components/3D";
 import ScrollingCards from "./components/ScrollingCards";
 import ServiceTable from "./components/ServiceTable";
 import LoyaltyProgram from "./components/LoyaltyProgram";
+import ServiceList from "./components/ServiceList";
+import CareersPage from "./components/CareerPage";
 
 
 
@@ -28,23 +30,31 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className=" bg-slate-100 justify-center items-center overflow-hidden px-5 mx-auto sm:px-10">
-        <div className="max-w-7xl w-full mx-auto px-5 sm:px-10 flex-col grid-flow-col justify-center items-center overflow-clip">
+      <main className=" bg-slate-100 justify-center items-center overflow-hidden  mx-auto ">
+        <div className=" w-full mx-auto px-5 sm:px-10 flex-col grid-flow-col justify-center items-center overflow-clip">
           <Hero/>
           <AboutUs/>
           <Experience />
+          <ServiceTable/>
           <ScrollingCards/>
+          
           <RecentProjects/>
           <Clients />
-          <ServiceTable/>
+          
+          
+          
+
           
           <ScrollingPortfolio/>
           
           <Approach/>
-          <LoyaltyProgram/>
+          
+
           <Footer/>
         </div>
+        
       </main>
+      
     </>
   );
 }
