@@ -81,7 +81,7 @@ const Hero: React.FC = () => {
             
             
             >The Leading  Provider of Innovative
-            Marketing Solutions &  Corprate Branding</span><br className="hidden sm:inline" /> <span className='text-black  sm:text-sm'
+            Marketing Solutions &  Corporate Branding</span><br className="hidden sm:inline" /> <span className='text-black  sm:text-sm'
 
                 style={{
                   
@@ -104,10 +104,10 @@ const Hero: React.FC = () => {
           >
            
             <Link href="#service" passHref>
-              <button className="w-full sm:w-auto px-6 sm:px-8 py-1 sm:py-4 bg-black text-white rounded-full hover:bg-purple transition-all duration-300 ease-out border-b-4 border-gray-800 hover:border-b-0 hover:translate-y-1 text-base sm:text-lg font-bold shadow-lg hover:shadow-xl active:shadow-md relative overflow-hidden">
+              <button className="w-full sm:w-auto px-6 sm:px-8 py-1 sm:py-2 bg-purple text-white rounded-full hover:bg-purple transition-all duration-300 ease-out border-b-4 border-gray-800 hover:border-b-0 hover:translate-y-1 text-base sm:text-lg font-bold shadow-lg hover:shadow-xl active:shadow-md relative overflow-hidden">
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                 <span className="absolute inset-0 bg-white opacity-20"></span>
-                <span className="relative z-10 inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-1 py-1 text-sm font-medium text-white backdrop-blur-2xl">
+                <span className="relative z-10 inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-purple px-1 py-1 text-sm font-medium text-white backdrop-blur-2xl">
                 < FaSearch className="h-6 w-6 mr-2" />
                   Discover Our Work</span>
               </button>

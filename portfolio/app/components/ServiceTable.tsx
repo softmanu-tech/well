@@ -15,7 +15,7 @@ const services: Service[] = [
       { name: 'Airline', items: ['Aircraft wraps', 'E-Ticket', 'Website Adverts', 'Trays', 'Headrest', 'Merchandise'] },
       { name: 'Automotive', items: ['Car branding'] },
       { name: 'FMCG', items: ['Branding FMCG', 'Promotional kiosk'] },
-      { name: 'Hospitals', items: ['Logos & Visual Identity','Community Outreach','Marketing Materials','Staff Uniforms'] },
+      { name: 'Hospitals', items: [] },
     ],
   },
   {
@@ -25,7 +25,7 @@ const services: Service[] = [
       { name: 'Outdoor Advertising', items: [] },
       { name: 'Television Advertising)', items: [] },
       { name: 'Print Advertising', items: ['Newspapers','Billboards','Magazines'] },
-      { name: 'Radio Advertising', items: ['creating audio ads for radio stations'] },
+      
       { name: 'Public Relations', items: ['Brand awareness,credibility & reputation',] },
     ],
   },
@@ -33,10 +33,10 @@ const services: Service[] = [
     name: 'BTL(Below-The-Line) Services',
     subcategories: [
       { name: 'Digital Marketing', items: ['Social Media Marketing', 'Email Marketing','Google Ads', 'Pay-Per-Click']},
-      { name: 'Event Management', items: ['Event Conceptualization', 'Event Execution']},
+      { name: 'Event Management', items: ['Event Conceptualization', 'Event Execution','Experiential Marketing','Team Building']},
       { name: 'Promotional Merchandise', items: ['Promotional Products', 'Branded products']},
-      { name: 'Loyalty Programs', items: ['Rewarding repeat customers']},
-      { name: 'Experiential Marketing', items:['Team Building']}
+      
+      
     ]
   },
   {

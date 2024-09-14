@@ -6,7 +6,7 @@ import { FaMedal, FaGift, FaHandshake, FaChartLine } from 'react-icons/fa';
 
 const LoyaltyProgram: React.FC = () => {
   const handleSignUp = () => {
-    // Replace this with your actual sign-up logic
+    
     window.location.href = 'mailto:your-email@example.com?subject=Loyalty Program Sign-up';
   };
 
