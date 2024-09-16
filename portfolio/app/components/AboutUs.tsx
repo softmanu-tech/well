@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const AboutUs = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   const handleLearnMore = () => {
-    // Replace '/path/to/your/document.pdf' with the actual path to your PDF document
-    window.open('/p.pdf', '_blank');
+    setIsExpanded(!isExpanded);
   };
 
   const fadeIn = {
@@ -45,14 +46,26 @@ const AboutUs = () => {
           </motion.h1>
           <motion.p 
             variants={fadeIn}
-            className="text-base sm:text-lg lg:text-xl mb-8 max-w-4xl mx-auto font-light leading-relaxed"
+            className={`text-base sm:text-lg lg:text-xl mb-8 max-w-4xl mx-auto font-light leading-relaxed transition-all duration-300 ${isExpanded ? '' : 'line-clamp-2'}`}
           >
             We are the leading provider of innovative marketing solutions and corporate branding. Our integrated,
             cutting-edge strategies are designed to help clients achieve their goals and maximize efficiency, boost ROI, and enhance brand
             competence. With over a decade of experience in the corporate world, our team of marketing experts possesses the passion, skills,
             and creativity to develop specialized strategies that promote brand success.
           </motion.p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto mb-8">
+
+          {/* Read More Button */}
+          <motion.button 
+            variants={fadeIn}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="mt-6 bg-purple hover:bg-slate-300 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out text-base sm:text-lg"
+            onClick={handleLearnMore}
+          >
+            {isExpanded ? 'Show Less' : 'Read More'}
+          </motion.button>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto mb-8 mt-6">
             <motion.div variants={fadeIn}>
               <h2 className="text-2xl sm:text-3xl font-semibold mb-3 font-serif">Our Mission</h2>
               <p className="text-sm sm:text-base font-light">To empower businesses and individuals through cutting-edge technology and exceptional service.</p>
@@ -62,15 +75,6 @@ const AboutUs = () => {
               <p className="text-sm sm:text-base font-light">To be the leading force in digital transformation, shaping a better future for all.</p>
             </motion.div>
           </div>
-          <motion.button 
-            variants={fadeIn}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-6 bg-purple hover:bg-slate-300 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out text-base sm:text-lg"
-            onClick={handleLearnMore}
-          >
-            Read More..
-          </motion.button>
         </div>
       </motion.div>
     </div>
