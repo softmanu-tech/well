@@ -26,17 +26,16 @@ const products: Product[] = [
 const AddToCart: React.FC = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  // Add product to cart
+  // Add product to cart (increment by 1)
   const addToCart = (product: Product) => {
-    setCart(prevCart => {
-      const itemIndex = prevCart.findIndex(item => item.product.id === product.id);
+    console.log('Adding to cart:', product.name); // Debugging statement
+    setCart((prevCart) => {
+      const itemIndex = prevCart.findIndex((item) => item.product.id === product.id);
       if (itemIndex > -1) {
-        // Increment quantity for existing item
         const updatedCart = [...prevCart];
-        updatedCart[itemIndex].quantity += 1;
+        updatedCart[itemIndex].quantity = updatedCart[itemIndex].quantity + 1;
         return updatedCart;
       } else {
-        // Add new item to cart
         return [...prevCart, { product, quantity: 1 }];
       }
     });
@@ -44,16 +43,17 @@ const AddToCart: React.FC = () => {
 
   // Remove item from cart
   const removeFromCart = (productId: number) => {
-    setCart(prevCart => prevCart.filter(item => item.product.id !== productId));
+    console.log('Removing from cart:', productId); // Debugging statement
+    setCart((prevCart) => prevCart.filter((item) => item.product.id !== productId));
   };
 
   // Update item quantity
   const updateQuantity = (productId: number, change: number) => {
-    setCart(prevCart => {
-      const itemIndex = prevCart.findIndex(item => item.product.id === productId);
+    console.log('Updating quantity for product ID:', productId, 'Change:', change); // Debugging statement
+    setCart((prevCart) => {
+      const itemIndex = prevCart.findIndex((item) => item.product.id === productId);
       if (itemIndex > -1) {
         const updatedCart = [...prevCart];
-        // Ensure that quantity is updated correctly
         updatedCart[itemIndex].quantity = Math.max(updatedCart[itemIndex].quantity + change, 1);
         return updatedCart;
       }
@@ -67,7 +67,7 @@ const AddToCart: React.FC = () => {
   const totalAmount = totalPrice + shippingCost;
 
   return (
-    <div className="bg-gradient-to-br from-teal-200 to-purple-300 min-h-screen py-10 px-5 flex items-center justify-center">
+    <div className="bg-gradient-to-br from-purple to-indigo-900 min-h-screen py-10 px-5 flex items-center justify-center">
       <div className="bg-white shadow-xl rounded-lg overflow-hidden w-full max-w-6xl mx-auto flex flex-col md:flex-row">
 
         {/* Product Section */}
@@ -83,7 +83,10 @@ const AddToCart: React.FC = () => {
                 </div>
                 <div className="flex justify-between items-center mt-2 w-full">
                   <span className="text-green-600 font-bold">&euro;{product.price.toFixed(2)}</span>
-                  <button onClick={() => addToCart(product)} className="bg-blue-600 text-white px-4 py-1 rounded-lg shadow hover:bg-blue-700">
+                  <button
+                    onClick={() => addToCart(product)}
+                    className="bg-blue-600 text-white px-4 py-1 rounded-lg shadow hover:bg-blue-700"
+                  >
                     Add to Cart
                   </button>
                 </div>
@@ -93,25 +96,40 @@ const AddToCart: React.FC = () => {
         </div>
 
         {/* Cart Section */}
-        <div className="cart p-6 md:w-1/3 bg-gray-800 text-white">
+        <div className="cart p-6 md:w-1/3 bg-white dark:bg-indigo-900 text-white">
           <h4 className="text-2xl font-bold mb-6">Your Cart</h4>
           {cart.length === 0 ? (
             <p className="text-center text-gray-400">Your cart is empty.</p>
           ) : (
-            cart.map(item => (
+            cart.map((item) => (
               <div key={item.product.id} className="flex items-center border-b border-gray-700 py-4">
                 <img className="w-16 h-16 object-cover rounded-lg mr-4" src={item.product.imageUrl} alt={item.product.name} />
                 <div className="flex-1">
                   <h5 className="text-lg font-semibold">{item.product.name}</h5>
                 </div>
                 <div className="flex items-center mx-2">
-                  <button onClick={() => updateQuantity(item.product.id, -1)} className="px-2 py-1 bg-gray-600 text-white rounded-md shadow hover:bg-gray-500">-</button>
+                  <button
+                    onClick={() => updateQuantity(item.product.id, -1)}
+                    className="px-2 py-1 bg-gray-600 text-white rounded-md shadow hover:bg-gray-500"
+                  >
+                    -
+                  </button>
                   <span className="mx-3 text-xl font-semibold">{item.quantity}</span>
-                  <button onClick={() => updateQuantity(item.product.id, 1)} className="px-2 py-1 bg-gray-600 text-white rounded-md shadow hover:bg-gray-500">+</button>
+                  <button
+                    onClick={() => updateQuantity(item.product.id, 1)}
+                    className="px-2 py-1 bg-gray-600 text-white rounded-md shadow hover:bg-gray-500"
+                  >
+                    +
+                  </button>
                 </div>
                 <div className="ml-4 text-right">
                   <div className="text-xl font-semibold">&euro; {item.product.price.toFixed(2)}</div>
-                  <button onClick={() => removeFromCart(item.product.id)} className="text-red-500 hover:text-red-700 text-lg">&times;</button>
+                  <button
+                    onClick={() => removeFromCart(item.product.id)}
+                    className="text-red-500 hover:text-red-700 text-lg"
+                  >
+                    &times;
+                  </button>
                 </div>
               </div>
             ))
@@ -121,7 +139,7 @@ const AddToCart: React.FC = () => {
               <span>Items: {cart.length}</span>
               <span>Total: &euro; {totalPrice.toFixed(2)}</span>
             </div>
-            <button className="w-full bg-gradient-to-r from-green-400 to-blue-500 text-white py-2 rounded-lg font-semibold shadow-lg hover:bg-gradient-to-l from-green-500 to-blue-600">
+            <button className="w-full bg-gradient-to-br from-purple to-indigo-900 text-white py-2 rounded-lg font-semibold shadow-lg hover:bg-purple hover:text-red-700">
               Checkout
             </button>
           </div>
