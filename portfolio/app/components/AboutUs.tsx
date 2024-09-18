@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import ProductsPage from './ProductsPage';
+
 
 const AboutUs = () => {
   const [isExpanded, setIsExpanded] = useState(false);

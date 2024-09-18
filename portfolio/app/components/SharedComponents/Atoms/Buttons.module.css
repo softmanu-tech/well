@@ -1,0 +1,35 @@
+.Buttons{
+    display: flex;
+padding: var(--spacing-md, 8px) var(--spacing-lg, 12px);
+justify-content: center;
+align-items: center;
+gap: var(--spacing-xs, 4px);
+align-self: stretch;
+border-radius: var(--radius-md, 8px);
+border: 1px solid var(--Component-colors-Components-Buttons-Secondary-button-secondary-border, #D0D5DD);
+background: var(--Component-colors-Components-Buttons-Secondary-button-secondary-bg, #FFF);
+
+/* Shadows/shadow-xs */
+box-shadow: 0px 1px 2px 0px var(--Colors-Effects-Shadows-shadow-xs, rgba(16, 24, 40, 0.05));
+}
+
+.ButtonText{
+    display: flex;
+padding: 0px var(--spacing-xxs, 2px);
+justify-content: center;
+align-items: center;
+color: #0783f3;
+transition: .3s;
+color: var(--colors-text-text-secondary-700, #344054);
+
+/* Text sm/Medium */
+font-family: var(--Font-family-font-family-body, Inter);
+font-size: var(--Font-size-text-sm, 14px);
+font-style: normal;
+font-weight: 500;
+line-height: var(--Line-height-text-sm, 20px); /* 142.857% */
+}
+
+.ButtonText:hover{
+    zoom: 90%;
+}

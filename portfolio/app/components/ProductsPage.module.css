@@ -1,0 +1,48 @@
+.HotDealToday{
+    display: flex;
+min-width: var(--Grid-layouts-iPhone-375px, 375px);
+max-width: var(--grid-layouts-desktop-1280-px, 1280px);
+padding: var(--spacing-system-guides-corner-radius-12, 48px) var(--spacing-system-guides-corner-radius-4, 16px);
+flex-direction: column;
+align-items: flex-start;
+gap: var(--spacing-system-guides-corner-radius-10, 40px);
+align-self: stretch;
+}
+
+.hotDeal{
+    display: flex;
+    min-width: var(--spacing-system-guides-corner-radius-84, 336px);
+    max-width: var(--grid-layouts-desktop-1280-px, 1280px);
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: var(--spacing-system-guides-corner-radius-1, 4px);
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+
+.hotDealTdayText{
+    display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 1;
+line-clamp: 1;
+overflow: hidden;
+color: var(--colors-text-text-primary-900, #101828);
+text-align: center;
+text-overflow: ellipsis;
+
+/* Display xs/Semibold */
+font-family: var(--Font-family-font-family-display, Inter);
+font-size: var(--Font-size-display-xs, 24px);
+font-style: normal;
+font-weight: 600;
+line-height: var(--Line-height-display-xs, 32px); /* 133.333% */
+}
+
+.hotDealCards{
+    display: flex;
+align-items: flex-start;
+align-content: flex-start;
+gap: 16px var(--spacing-system-guides-corner-radius-4, 16px);
+align-self: stretch;
+flex-wrap: wrap;
+}
