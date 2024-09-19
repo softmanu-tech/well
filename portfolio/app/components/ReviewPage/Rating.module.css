@@ -1,0 +1,63 @@
+/* General page styling */
+.RateUs {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  /* Star rating styling */
+  .Stars {
+    margin: 20px 0;
+  }
+  
+  .Star {
+    font-size: 30px;
+    cursor: pointer;
+    color: #ccc;
+  }
+  
+  .Filled {
+    color: gold;
+  }
+  
+  /* Message for low ratings */
+  .LowRatingMessage {
+    margin-top: 15px;
+  }
+  
+  .ReviewInput {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  /* Button styling starting from this line */
+.SubmitButton {
+  padding: 10px 20px;
+  background-color: #0A0A2A; /* Dark navy color as seen in the image */
+  color: white;
+  border: none;
+  border-radius: 50px; /* Full rounded edges */
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+  width: 150px; /* Fixed width to match the style */
+}
+
+.SubmitButton:hover {
+  background-color: #050517; /* Slightly darker on hover */
+}
+
+.SubmitButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

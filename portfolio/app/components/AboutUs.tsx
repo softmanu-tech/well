@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+
 const AboutUs = () => {
   const handleLearnMore = () => {
     // Replace '/path/to/your/document.pdf' with the actual path to your PDF document
