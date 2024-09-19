@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
     
     { name: 'Services', icon: <FaBriefcase size={20} />, href:'/#services' },
     { name: 'Shop', icon: <FaShoppingBag size={20} /> , href:'/shop'},
-    { name: 'Careers', icon: <FaUsers size={20} />, href:'/#careers' },
+    { name: 'Careers', icon: <FaUsers size={20} />, href:'/careers' },
     { name: 'Testimonials', icon: <FaCommentAlt size={20} />, href:'/#testimonials' },
     
     
@@ -66,14 +66,14 @@ const Navbar: React.FC = () => {
     <>
       <nav
         className={`fixed top-10 left-0 right-0 z-50 transition-all duration-300 ${
-          isOpen ? 'bg-white' : isSticky ? 'bg-/70' : 'bg-transparent'
-        } transparent-md`}
+          isOpen ? 'bg-white' : isSticky ? 'bg-/70' : 'bg-slate-300'
+        } slate-300-md`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <a href="/" className="flex-shrink-0">
-                <img className="h-8 w-8 rounded-lg bg-transparent" src="/l1.png" alt="Logo" />
+                <img className="h-8 w-8 rounded-lg bg-slate-300" src="/l1.png" alt="Logo" />
               </a>
             </div>
             <div className="hidden md:block">
